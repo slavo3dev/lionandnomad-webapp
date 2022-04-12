@@ -7,9 +7,8 @@ interface Props {
 export const BaseLayout: React.FC<Props> = (props) => {
     return (
         <>
-            (
             <Header />
-            {props.children})
+            {props.children}
         </>
     );
 };
