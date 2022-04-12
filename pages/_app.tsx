@@ -1,4 +1,4 @@
-import "../styles/globals.css";
+import "../styles/main.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import type { AppProps } from "next/app";
 import { BaseLayout } from "../components";
