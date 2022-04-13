@@ -1,10 +1,13 @@
 import type { NextPage } from "next";
+import { BaseLayout, BasePage } from "../../components";
 
 const about: NextPage = () => {
     return (
-        <div>
+        <BaseLayout className="">
+          <BasePage className="">
             <h1>Hello About</h1>
-        </div>
+            </BasePage>
+        </BaseLayout>
     );
 };
 

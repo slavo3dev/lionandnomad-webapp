@@ -1,12 +1,27 @@
 import type { NextPage } from "next";
 import axios from "axios";
 import Link from "next/link";
+import { BaseLayout, BasePage } from "../../components";
+import { useEffect } from 'react';
+
+
 
 interface Props {
     posts: {};
 }
 
 const portfolios: NextPage<Props> = ({ posts }) => {
+
+    useEffect(() => {
+        async function getPosts() {
+          const res = await fetch('/api/v1/posts');
+          const data = await res.json();
+        }
+    
+        getPosts();
+      }, [])
+
+
     const renderPosts = () => {
         const postObjects = Object(posts);
 
@@ -19,10 +34,14 @@ const portfolios: NextPage<Props> = ({ posts }) => {
         ));
     };
     return (
-        <div>
-            <h1>Hello Portfolios</h1>
-            <ul>{renderPosts()}</ul>
-        </div>
+        <BaseLayout className="">
+             <BasePage className="">
+                 <h1>I am portfolios page</h1>
+                 <ul>
+                    {renderPosts()}
+                 </ul>
+             </BasePage>
+        </BaseLayout >
     );
 };
 

@@ -1,3 +1,3 @@
-import { Header, BaseLayout } from "./Layout ";
+import { Header, BaseLayout, BasePage } from "./Layout ";
 
-export { Header, BaseLayout };
+export { Header, BaseLayout, BasePage };
