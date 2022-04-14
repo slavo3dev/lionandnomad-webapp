@@ -58,15 +58,15 @@ const BsNavLink = (props: Props) => {
                 <BsNavLink href="/cv" title="Cv"/>
               </NavItem>
             </Nav>
-            <Nav navbar>
+          </Collapse>
+          <Nav navbar>
               <NavItem className="port-navbar-item">
                 <LoginLink />
               </NavItem>
               <NavItem className="port-navbar-item">
                 <LogoutLink />
               </NavItem>
-            </Nav>
-          </Collapse>
+         </Nav>
         </Navbar>
       </div>
     );

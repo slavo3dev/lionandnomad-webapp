@@ -1,34 +1,29 @@
-import React from "react";
-import axios from "axios";
-import { NextPage } from "next";
-import { BaseLayout, BasePage } from "../../components";
+import { BaseLayout, BasePage } from 'components';
+import { useGetData } from '../../lib/actions';
+import { useRouter } from 'next/router';
 
-const portfolio: NextPage = ({ portfolio }: any) => {
-    return (
-        <BaseLayout className="">
-            <BasePage className="">
-                <h1>I am Portfolio Page</h1>
-                <h1>{portfolio.title}</h1>
-                <p>BODY: {portfolio.body}</p>
-                <p>ID: {portfolio.id}</p>
-            </BasePage>
-        </BaseLayout>
-    );
-};
+const portfolio = () => {
+  const router = useRouter();
 
-portfolio.getInitialProps = async ({ query }) => {
-    let post = {};
+  console.log("Router: ", router.query.id)
+  const {data: portfolio, error, loading}: any = useGetData(router.query.id ? `/api/v1/posts/${router.query.id}` : null);
 
-    try {
-        const res = await axios.get(
-            `https://jsonplaceholder.typicode.com/posts/${query.id}`
-        );
-        post = res.data;
-    } catch (e) {
-        console.error(e);
-    }
-
-    return { portfolio: post };
-};
+  return (
+    <BaseLayout className=''>
+      <BasePage className=''>
+      { loading && <p>Loading Data...</p>}
+      { error && <div className="alert alert-danger">{error.message}</div>}
+      { portfolio &&
+        <>
+          <h1>I am Portfolio page</h1>
+          <h1>{portfolio.title}</h1>
+          <p>BODY: {portfolio.body}</p>
+          <p>ID: {portfolio.id}</p>
+        </>
+      }
+      </BasePage>
+    </BaseLayout>
+  )
+}
 
 export default portfolio;
