@@ -16,9 +16,11 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@components/*": ["/components/*"]
+      "@components/*": ["/components/*"],
+      "@components": ["/components"],
+      "@lib/*": ["/lib/*"],
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src", "types", "pages/**/*", "src/**/*", "components/**/*"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src", "types", "pages/**/*", "src/**/*", "components/**/*" ],
   "exclude": ["node_modules"]
 }

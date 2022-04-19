@@ -21,8 +21,7 @@ const BsNavLink = (props: Props) => {
       <a className="navbar-brand port-navbar-brand">Slavo_3</a>
     </Link>
   
-  const LoginLink = () =>
-    <span className="nav-link port-navbar-link clickable">Login</span>
+  const LoginLink = () => <a className="nav-link port-navbar-link" href="/api/v1/login">Login</a>
   
   const LogoutLink = () =>
     <span className="nav-link port-navbar-link clickable">Logout</span>
