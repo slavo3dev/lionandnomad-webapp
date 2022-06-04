@@ -69,7 +69,9 @@ export const Header = () => {
                 </Collapse>
                 <Nav navbar>
                     <NavItem className="port-navbar-item">
-                        <LoginLink />
+                        <p style={{ color: "white" }}>
+                            <LoginLink />
+                        </p>
                     </NavItem>
                     <NavItem className="port-navbar-item">
                         <LogoutLink />
